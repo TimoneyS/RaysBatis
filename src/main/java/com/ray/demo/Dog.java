@@ -1,4 +1,4 @@
-package com.ray;
+package com.ray.demo;
 
 public class Dog {
 

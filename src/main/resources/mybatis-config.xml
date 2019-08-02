@@ -5,6 +5,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <configuration>
 
+    <typeHandlers>
+        <package name="com.ray.type.handler"/>
+    </typeHandlers>
+
     <properties resource="datasource.properties">
     </properties>
 

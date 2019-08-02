@@ -1,8 +1,8 @@
-package com.ray.code;
+package com.ray.demo.codeconfig;
 
 import org.apache.ibatis.annotations.Select;
 
-import com.ray.Dog;
+import com.ray.demo.Dog;
 
 public interface DogMapper {
 

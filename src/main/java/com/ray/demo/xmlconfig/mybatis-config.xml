@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     </environments>
 
     <mappers>
-        <mapper resource="com/ray/xml/DogMapper.xml"/>
+        <mapper resource="com/ray/demo/xmlconfig/DogMapper.xml"/>
     </mappers>
 
 </configuration>
