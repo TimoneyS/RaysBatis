@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import com.ray.demo.codeconfig.CodeConfig;
 import com.ray.demo.codeconfig.DogDao;
+import com.ray.entity.Dog;
 
 public class TestCodeConfig {
 
@@ -19,7 +20,7 @@ public class TestCodeConfig {
     @Test
     public void testSelect() {
         Dog d = dao.selectDog(1);
-        System.out.printf("Dog : name = %s, age = %d\n", d.name, d.age);
+        System.out.printf("Dog : name = %s, age = %d\n", d.getName(), d.getAge());
     }
     
 }

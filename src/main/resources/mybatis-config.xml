@@ -5,28 +5,28 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <configuration>
 
-    <typeHandlers>
-        <package name="com.ray.type.handler"/>
-    </typeHandlers>
+	<properties resource="datasource.properties">
+	</properties>
 
-    <properties resource="datasource.properties">
-    </properties>
+	<typeHandlers>
+		<package name="com.ray.typehandler" />
+	</typeHandlers>
 
-    <environments default="dev">
-        <environment id="dev">
-            <transactionManager type="JDBC" />
-            <dataSource type="POOLED">
-                <property name="driver" value="${driver}"/>
-                <property name="url" value="${url}"/>
-                <property name="username" value="${username}"/>
-                <property name="password" value="${password}"/>
-            </dataSource>
-        </environment>
-    
-    </environments>
+	<environments default="dev">
+		<environment id="dev">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}" />
+				<property name="url" value="${url}" />
+				<property name="username" value="${username}" />
+				<property name="password" value="${password}" />
+			</dataSource>
+		</environment>
+
+	</environments>
 
     <mappers>
-        <mapper resource="com/ray/dao/QuestionMapper.xml"/>
+        <package name="com.ray.typehandler"/>
     </mappers>
 
 </configuration>

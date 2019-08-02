@@ -1,25 +1,27 @@
-package com.ray.demo.xmlconfig;
+package com.ray.common;
 
 import java.io.IOException;
 
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.ray.entity.Dog;
-
-public class XmlConfig {
+public class Config {
     
-    static SqlSessionFactory sqlSessionFactory;
+    private static SqlSessionFactory sqlSessionFactory;
     
-    public static void init() {
+    public static void init(String file) {
         try {
             sqlSessionFactory = new SqlSessionFactoryBuilder()
-                    .build(Resources.getResourceAsStream("com/ray/demo/xmlconfig/mybatis-config.xml"));
+                    .build(Resources.getResourceAsStream(file));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    
+    public static SqlSessionFactory getSqlSessionFactory() {
+        return sqlSessionFactory;
+    }
+    
     
 }

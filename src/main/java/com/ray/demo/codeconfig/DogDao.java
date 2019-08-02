@@ -2,7 +2,7 @@ package com.ray.demo.codeconfig;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.ray.demo.Dog;
+import com.ray.entity.Dog;
 
 public class DogDao {
     

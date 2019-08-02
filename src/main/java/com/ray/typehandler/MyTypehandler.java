@@ -5,11 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedJdbcTypes;
+import org.apache.ibatis.type.MappedTypes;
 
+@Mapper()
 @MappedJdbcTypes(JdbcType.VARCHAR)
+@MappedTypes(String.class)
 public class MyTypehandler extends BaseTypeHandler<String> {
 
     @Override
