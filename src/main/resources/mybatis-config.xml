@@ -11,6 +11,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeHandlers>
 		<package name="com.ray.typehandler" />
 	</typeHandlers>
+	<plugins>
+	   <plugin interceptor="com.ray.interceptor.RaysInterceptor">
+	   </plugin>
+	</plugins>
 
 	<environments default="dev">
 		<environment id="dev">
@@ -26,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 
     <mappers>
-        <package name="com.ray.typehandler"/>
+        <package name="com.ray.entity.mapper"/>
     </mappers>
 
 </configuration>
