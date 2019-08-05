@@ -3,6 +3,7 @@ package com.ray.demo;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.ray.common.H2Util;
 import com.ray.demo.xmlconfig.DogDao;
 import com.ray.demo.xmlconfig.XmlConfig;
 import com.ray.entity.Dog;
@@ -14,6 +15,7 @@ public class TestXmlConfig {
     @Before
     public void init() {
         XmlConfig.init();
+        H2Util.init("schema.sql");
         dao = new DogDao();
     }
     

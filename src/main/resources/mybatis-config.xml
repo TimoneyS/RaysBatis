@@ -26,10 +26,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 				<property name="password" value="${password}" />
 			</dataSource>
 		</environment>
-
 	</environments>
-
+	
     <mappers>
+         <mapper resource="com/ray/entity/QuestionMapper.xml"/>
         <package name="com.ray.entity.mapper"/>
     </mappers>
 

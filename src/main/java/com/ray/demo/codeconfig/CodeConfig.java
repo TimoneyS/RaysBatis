@@ -12,7 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
-import com.ray.common.Util;
+import com.ray.common.SysUtil;
 
 public class CodeConfig {
     
@@ -20,7 +20,7 @@ public class CodeConfig {
     
     public static void init() {
         
-        Properties prop = Util.loadProperties("datasource.properties");
+        Properties prop = SysUtil.loadProperties("datasource.properties");
         // 创建数据源
         DataSource ds = new PooledDataSource(
                 prop.getProperty("driver"),

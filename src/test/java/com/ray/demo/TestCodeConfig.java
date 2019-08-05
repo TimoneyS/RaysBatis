@@ -3,6 +3,7 @@ package com.ray.demo;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.ray.common.H2Util;
 import com.ray.demo.codeconfig.CodeConfig;
 import com.ray.demo.codeconfig.DogDao;
 import com.ray.entity.Dog;
@@ -14,6 +15,7 @@ public class TestCodeConfig {
     @Before
     public void init() {
         CodeConfig.init();
+        H2Util.init("schema.sql");
         dao = new DogDao();
     }
     

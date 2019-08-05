@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Question">
+	<select id="selectQuestion" resultMap="quesResultMap">
+		select 
+		    Q.question_id,
+		    Q.question_title,
+		    Q.author_id,
+		    U.real_name,
+		    A.answer_id,
+		    A.answer_content
+		 from question Q 
+		    left outer join n_user U on Q.author_id = U.user_id
+		    left outer join answer A on Q.question_id = A.parent_id
+		    where Q.question_id = #{id}
+	</select>
+	
+	<resultMap id="quesResultMap" type="com.ray.entity.Question">
+		<id property="id" column="question_id"/>
+		<result property="title" column="question_title"/>
+        <association property="author" javaType="com.ray.entity.Author">
+            <id property="id" column="author_id"/>
+            <result property="realName" column="real_name"/>
+        </association>
+        
+        <collection property="answers" ofType="com.ray.entity.Answer">
+            <id property="id" column="answer_id"/>
+            <result property="content" column="answer_content"/>
+        </collection>
+        	
+	</resultMap>
+	
+</mapper>
