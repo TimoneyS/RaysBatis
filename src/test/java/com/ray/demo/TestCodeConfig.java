@@ -15,7 +15,7 @@ public class TestCodeConfig {
     @Before
     public void init() {
         CodeConfig.init();
-        H2Util.init("schema.sql");
+        H2Util.init("com/ray/demo/schema.sql");
         dao = new DogDao();
     }
     

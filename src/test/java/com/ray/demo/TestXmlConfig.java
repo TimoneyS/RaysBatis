@@ -15,7 +15,7 @@ public class TestXmlConfig {
     @Before
     public void init() {
         XmlConfig.init();
-        H2Util.init("schema.sql");
+        H2Util.init("com/ray/demo/schema.sql");
         dao = new DogDao();
     }
     
