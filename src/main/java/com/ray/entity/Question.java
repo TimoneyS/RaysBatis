@@ -59,5 +59,22 @@ public class Question {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("Question ").append(id).append(" : ").append(title).append('\n')
+        .append("  ").append(author).append(" : ").append(content).append("\n")
+        .append("  ").append(createDate).append('\n')
+        .append("-----------------------------------------------------\n");
+        
+        if (answers != null) {
+            for (Answer a : answers) {
+                sb.append(a).append('\n');
+            }
+        }
+        return sb.toString();
+    }
 
 }

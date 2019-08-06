@@ -2,7 +2,7 @@ package com.ray.demo.codeconfig;
 
 import org.apache.ibatis.annotations.Select;
 
-import com.ray.entity.Dog;
+import com.ray.demo.entity.Dog;
 
 public interface DogMapper {
 

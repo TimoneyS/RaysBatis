@@ -8,8 +8,7 @@ public class Author {
     String username;
     String password;
     String realName;
-    String userJob;
-    String userTitle;
+    String describle;
     Date   createDate;
 
     public Long getId() {
@@ -52,20 +51,17 @@ public class Author {
         this.createDate = createDate;
     }
 
-    public String getUserJob() {
-        return userJob;
+    public String getDescrible() {
+        return describle;
     }
 
-    public void setUserJob(String userJob) {
-        this.userJob = userJob;
+    public void setDescrible(String describle) {
+        this.describle = describle;
     }
-
-    public String getUserTitle() {
-        return userTitle;
-    }
-
-    public void setUserTitle(String userTitle) {
-        this.userTitle = userTitle;
+    
+    @Override
+    public String toString() {
+        return realName;
     }
 
 }

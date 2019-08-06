@@ -9,7 +9,25 @@ public class QuestionDao {
     
     public Question selectQuestion(int id) {
         try (SqlSession sess = Config.getSqlSessionFactory().openSession()) {
-            return sess.selectOne("Question.selectQuestion", 26);
+            return sess.selectOne("Question.selectQuestion", id);
+        }
+    }
+    
+    public Question selectQuestionEmbed(int id) {
+        try (SqlSession sess = Config.getSqlSessionFactory().openSession()) {
+            return sess.selectOne("Question.selectQuestionEmbed", id);
+        }
+    }
+
+    public Question selectQuestionUnion(int id) {
+        try (SqlSession sess = Config.getSqlSessionFactory().openSession()) {
+            return sess.selectOne("Question.selectQuesUnion", id);
+        }
+    }
+
+    public Question selectQuestionAutoMapping(int id) {
+        try (SqlSession sess = Config.getSqlSessionFactory().openSession()) {
+            return sess.selectOne("Question.selectQuesAutoMapping", id);
         }
     }
     

@@ -8,9 +8,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<properties resource="datasource.properties">
 	</properties>
 
-	<typeHandlers>
-		<package name="com.ray.typehandler" />
-	</typeHandlers>
 	<plugins>
 	   <plugin interceptor="com.ray.interceptor.RaysInterceptor">
 	   </plugin>

@@ -21,8 +21,34 @@ public class TestQuestionDao {
     
     @Test
     public void testQuestionSelect() {
-        Question question = dao.selectQuestion(26);
+        System.out.println("====== testQuestionSelect ========================");
+        
+        Question question = dao.selectQuestion(1);
         System.out.println(question);
     }
+    
+    @Test
+    public void testQuestionSelectEmbed() {
+        System.out.println("====== selectQuestionEmbed ========================");
+        Question question = dao.selectQuestionEmbed(1);
+        System.out.println(question);
+    }
+    
+    @Test
+    public void testQuestionSelectUnion() {
+        System.out.println("====== testQuestionSelectUnion ========================");
+        Question question = dao.selectQuestionUnion(1);
+        System.out.println(question);
+    }
+    
+    @Test
+    public void testQuestionSelectAutoMapping() {
+        
+        System.out.println("====== testQuestionAutoMapping ========================");
+        Question question = dao.selectQuestionAutoMapping(1);
+        System.out.println(question);
+        
+    }
+    
     
 }

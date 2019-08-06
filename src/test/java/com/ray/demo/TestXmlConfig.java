@@ -4,9 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.ray.common.H2Util;
+import com.ray.demo.entity.Dog;
 import com.ray.demo.xmlconfig.DogDao;
 import com.ray.demo.xmlconfig.XmlConfig;
-import com.ray.entity.Dog;
 
 public class TestXmlConfig {
     

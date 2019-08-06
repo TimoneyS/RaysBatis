@@ -6,7 +6,7 @@ import org.junit.Test;
 import com.ray.common.H2Util;
 import com.ray.demo.codeconfig.CodeConfig;
 import com.ray.demo.codeconfig.DogDao;
-import com.ray.entity.Dog;
+import com.ray.demo.entity.Dog;
 
 public class TestCodeConfig {
 

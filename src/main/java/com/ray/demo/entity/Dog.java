@@ -1,4 +1,4 @@
-package com.ray.entity;
+package com.ray.demo.entity;
 
 public class Dog {
 

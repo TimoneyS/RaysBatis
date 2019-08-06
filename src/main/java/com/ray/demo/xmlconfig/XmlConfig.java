@@ -3,11 +3,8 @@ package com.ray.demo.xmlconfig;
 import java.io.IOException;
 
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
-import com.ray.entity.Dog;
 
 public class XmlConfig {
     
