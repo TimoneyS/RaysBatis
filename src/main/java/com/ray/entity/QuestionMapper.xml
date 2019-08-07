@@ -3,6 +3,12 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Question">
+
+    <insert id="insertQuestion" parameterType="com.ray.entity.Question">
+        insert into question (id, title, content, author_id, create_date)
+        values (#{id}, #{title}, #{content}, #{author.id}, #{createDate});
+    </insert>
+
 	<select id="selectQuestion"  resultMap="quesResultMap" >
 		select 
 		    Q.id,
@@ -21,7 +27,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		    left outer join author AU2 on AN.author_id = AU2.id
 		    where Q.id = #{id}
 	</select>
-	   <resultMap id="quesResultMap" type="com.ray.entity.Question" autoMapping="true">
+	
+	<resultMap id="quesResultMap" type="com.ray.entity.Question" autoMapping="true">
         <id property="id" column="id"/>
         <result property="createDate" column="create_date"/>
         <association property="author" javaType="com.ray.entity.Author" autoMapping="true">
@@ -38,7 +45,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </collection>
             
     </resultMap>
-	
 	
 	<!-- 嵌入查询映射关联 配置开始 -->
 	<select id="selectQuestionEmbed" resultMap="quesMapEmbed">

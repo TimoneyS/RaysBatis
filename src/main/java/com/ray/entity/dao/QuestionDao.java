@@ -13,6 +13,14 @@ public class QuestionDao {
         }
     }
     
+    public void insertQuestion(Question question) {
+        try (SqlSession sess = Config.getSqlSessionFactory().openSession()) {
+            // #{id}, #{title}, #{content}, #{authorId}, #{createDate}
+            sess.insert("Question.insertQuestion", question);
+            sess.commit();
+        }
+    }
+    
     public Question selectQuestionEmbed(int id) {
         try (SqlSession sess = Config.getSqlSessionFactory().openSession()) {
             return sess.selectOne("Question.selectQuestionEmbed", id);

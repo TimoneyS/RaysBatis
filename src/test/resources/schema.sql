@@ -8,7 +8,7 @@ create table author (
 );
 
 create table question (
-    id          int,
+    id          int PRIMARY KEY,
     title       varchar(255),
     content     clob,
     author_id   int,

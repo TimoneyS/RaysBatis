@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<environments default="dev">
 		<environment id="dev">
-			<transactionManager type="JDBC" />
+			<transactionManager type="MANAGED" />
 			<dataSource type="POOLED">
 				<property name="driver" value="${driver}" />
 				<property name="url" value="${url}" />
