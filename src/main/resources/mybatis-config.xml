@@ -7,13 +7,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<properties resource="datasource.properties">
 	</properties>
-
-	<plugins>
-	   <plugin interceptor="com.ray.interceptor.RaysInterceptor">
-	   </plugin>
-	</plugins>
-
+	
 	<environments default="dev">
+	
+	
 		<environment id="dev">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
@@ -26,8 +23,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	
     <mappers>
-         <mapper resource="com/ray/entity/QuestionMapper.xml"/>
-        <package name="com.ray.entity.mapper"/>
+         <package name="com.ray.mapper"/>
     </mappers>
 
 </configuration>

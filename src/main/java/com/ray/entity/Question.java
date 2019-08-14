@@ -5,15 +5,19 @@ import java.util.List;
 
 public class Question {
 
-    Long         id;
-    String       title;
-    String       content;
-    List<Answer> answers;
-    Author       author;
-    Date         createDate;
+    private Long        id;
+    private String      title;
+    private String      content;
+    private List<Reply> replys;
+    private Author      author;
+    private Date        createDate;
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -32,16 +36,12 @@ public class Question {
         this.content = content;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public List<Reply> getReplys() {
+        return replys;
     }
 
-    public List<Answer> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(List<Answer> answers) {
-        this.answers = answers;
+    public void setReplys(List<Reply> replys) {
+        this.replys = replys;
     }
 
     public Author getAuthor() {
@@ -59,18 +59,17 @@ public class Question {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
-    
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        
-        sb.append("Question ").append(id).append(" : ").append(title).append('\n')
-        .append("  ").append(author).append(" : ").append(content).append("\n")
-        .append("  ").append(createDate).append('\n')
-        .append("-----------------------------------------------------\n");
-        
-        if (answers != null) {
-            for (Answer a : answers) {
+
+        sb.append("Question ").append(id).append(" : ").append(title).append('\n').append("  ").append(author)
+                .append(" : ").append(content).append("\n").append("  ").append(createDate).append('\n')
+                .append("-----------------------------------------------------\n");
+
+        if (replys != null) {
+            for (Reply a : replys) {
                 sb.append(a).append('\n');
             }
         }

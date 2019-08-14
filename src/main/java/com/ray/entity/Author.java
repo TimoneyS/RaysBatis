@@ -4,12 +4,10 @@ import java.util.Date;
 
 public class Author {
 
-    Long   id;
-    String username;
-    String password;
-    String realName;
-    String describle;
-    Date   createDate;
+    private Long   id;
+    private String username;
+    private String realname;
+    private Date   createDate;
 
     public Long getId() {
         return id;
@@ -27,20 +25,12 @@ public class Author {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getRealname() {
+        return realname;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
+    public void setRealname(String realname) {
+        this.realname = realname;
     }
 
     public Date getCreateDate() {
@@ -50,18 +40,13 @@ public class Author {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
-
-    public String getDescrible() {
-        return describle;
-    }
-
-    public void setDescrible(String describle) {
-        this.describle = describle;
-    }
     
     @Override
     public String toString() {
-        return realName;
+        return "id = " + id + "\n" +
+                "username = " + username + "\n" +
+                "realname = " + realname + "\n" +
+                "createDate = " + createDate + "\n";
     }
 
 }

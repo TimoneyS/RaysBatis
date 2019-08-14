@@ -22,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
     <mappers>
         <mapper resource="com/ray/demo/xmlconfig/DogMapper.xml"/>
+        <mapper class="com.ray.entity.">
     </mappers>
 
 </configuration>
