@@ -1,20 +1,19 @@
-package com.ray.entity.dao.xml;
+package com.ray.xml.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.ray.common.Config;
-import com.ray.entity.Question;
-import com.ray.entity.dao.QuestionDao;
+import com.ray.dao.AuthorDao;
+import com.ray.entity.Author;
 
-public class QuestionDaoImpl implements QuestionDao {
+public class AuthorDaoImpl implements AuthorDao {
 
     @Override
-    public Question selectOne(long id) {
+    public Author selectOne(long id) {
         try(SqlSession sess = fac().openSession()) {
-            sess.selectOne("Question.selectOne", id);
+            return sess.selectOne("Author.selectOne", id);
         }
-        return null;
     }
     
     public SqlSessionFactory fac() {

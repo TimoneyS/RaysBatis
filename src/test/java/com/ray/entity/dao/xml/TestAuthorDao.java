@@ -8,9 +8,9 @@ import org.junit.runner.RunWith;
 
 import com.ray.common.H2Util;
 import com.ray.common.XmlConfigRunner;
+import com.ray.dao.AuthorDao;
 import com.ray.entity.Author;
-import com.ray.entity.dao.AuthorDao;
-import com.ray.entity.dao.xml.AuthorDaoImpl;
+import com.ray.xml.dao.AuthorDaoImpl;
 
 @RunWith(XmlConfigRunner.class)
 public class TestAuthorDao {

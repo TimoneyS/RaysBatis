@@ -7,9 +7,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.ray.common.XmlConfigRunner;
+import com.ray.dao.QuestionDao;
 import com.ray.entity.Question;
-import com.ray.entity.dao.QuestionDao;
-import com.ray.entity.dao.xml.QuestionDaoImpl;
+import com.ray.xml.dao.QuestionDaoImpl;
 
 @RunWith(XmlConfigRunner.class)
 public class TestQuestionDao {

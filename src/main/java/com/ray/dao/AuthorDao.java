@@ -1,4 +1,4 @@
-package com.ray.entity.dao;
+package com.ray.dao;
 
 import com.ray.entity.Author;
 

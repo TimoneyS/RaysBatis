@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<resultMap id="questionResult" type="com.ray.entity.Question">
 		<association property="author" column="author_id"
-			javaType="Author" select="Author.queryOne" />
+			javaType="com.ray.entity.Author" select="Author.queryOne" />
 	</resultMap>
 
 	<select id="selectOne" resultMap="questionResult">

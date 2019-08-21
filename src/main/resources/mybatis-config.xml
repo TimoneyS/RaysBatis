@@ -23,7 +23,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	
     <mappers>
-         <package name="com.ray.mapper"/>
+        <mapper resource="com/ray/xml/mapper/AuthorMapper.xml"/>
+        <mapper resource="com/ray/xml/mapper/QuestionMapper.xml"/>
     </mappers>
 
 </configuration>
