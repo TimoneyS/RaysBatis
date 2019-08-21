@@ -17,5 +17,5 @@ public interface AuthorMapper {
         @Result(property="createDate", column="create_date"),
     })
     public Author querySingle(long id);
-
+    
 }

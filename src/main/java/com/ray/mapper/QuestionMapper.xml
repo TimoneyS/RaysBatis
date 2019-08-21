@@ -4,104 +4,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Question">
 
-    <insert id="insertQuestion" parameterType="com.ray.entity.Question">
-        insert into question (id, title, content, author_id, create_date)
-        values (#{id}, #{title}, #{content}, #{author.id}, #{createDate});
-    </insert>
-
-	<select id="selectQuestion"  resultMap="quesResultMap" >
-		select 
-		    Q.id,
-		    Q.title,
-		    Q.content,
-		    Q.author_id   author_id,
-		    Q.create_date,
-		    AU.realname,
-		    AN.id         answer_id,
-		    AN.content    answer_content,
-            AU2.id        answer_author_id,
-		    AU2.realname  answer_author_realname
-		 from question Q 
-		    left outer join author AU on Q.author_id = AU.id
-		    left outer join answer AN on Q.id = AN.question_id
-		    left outer join author AU2 on AN.author_id = AU2.id
-		    where Q.id = #{id}
-	</select>
-	
-	<resultMap id="quesResultMap" type="com.ray.entity.Question" autoMapping="true">
-        <id property="id" column="id"/>
-        <result property="createDate" column="create_date"/>
-        <association property="author" javaType="com.ray.entity.Author" autoMapping="true">
-            <id property="id" column="author_id"/>
-        </association>
-        
-        <collection property="answers" ofType="com.ray.entity.Answer">
-            <id property="id" column="answer_id"/>
-            <result property="content" column="answer_content"/>
-            <association property="author" javaType="com.ray.entity.Author">
-                <id property="id" column="answer_author_id"/>
-                <result property="realName" column="answer_author_realname"/>
-            </association>
-        </collection>
-            
-    </resultMap>
-	
-	<!-- 嵌入查询映射关联 配置开始 -->
-	<select id="selectQuestionEmbed" resultMap="quesMapEmbed">
-	   select * from question where id = #{id}
-	</select>
-	
-	<select id="selectAuthorEmbed" resultType="com.ray.entity.Author">
-	   select * from author where id = #{id}
-	</select>
-	
-	<select id="selectAnswerEmbed" resultType="com.ray.entity.Answer">
-	   select * from answer where question_id = #{id}
-	</select>
-	
-	<resultMap type="com.ray.entity.Question" id="quesMapEmbed" autoMapping="true">
-	   <association property="author" column="author_id" select="selectAuthorEmbed"/>
-	   <collection property="answers" column="id" select="selectAnswerEmbed" autoMapping="true">
-	       <association property="author" column="author_id" select="selectAuthorEmbed" autoMapping="true"/>
-	   </collection>
+	<resultMap id="questionResult" type="com.ray.entity.Question">
+		<association property="author" column="author_id"
+			javaType="Author" select="Author.queryOne" />
 	</resultMap>
-	<!-- 嵌入查询映射关联 配置结束 -->
-	
-	
-	<!-- 自动映射 配置开始 -->
-    <select id="selectQuesAutoMapping" resultMap="quesAutoMapping">
-       select * from question where id = #{id}
-    </select>
-    <resultMap type="com.ray.entity.Question" id="quesAutoMapping">
-    </resultMap>
-    <!-- 自动映射 配置结束 -->
-	
-	<!-- 连接查询映射关联 配置开始 -->
-	<select id="selectQuesUnion"  resultMap="quesMapUnion" >
-        select 
-            Q.id,
-            Q.title,
-            Q.content,
-            Q.author_id  question_author_id,
-            A.id,
-            A.realname,
-            AN.id        answer_id,      
-            AN.content   answer_content
-         from question Q 
-            left outer join author A on Q.author_id = A.id
-            left outer join answer AN on Q.id = AN.question_id
-            where Q.id = #{id}
-    </select>
-    <resultMap type="com.ray.entity.Question" id="quesMapUnion" autoMapping="true">
-        <id property="id" column="id"/>
-        <association property="author" resultMap="authorMapUnion"/>
-        <collection property="answers" ofType="com.ray.entity.Answer">
-            <id property="id" column="answer_id"/>
-            <result property="content" column="answer_content"/>
-        </collection>
-    </resultMap>
-    
-    <resultMap type="com.ray.entity.Author" id="authorMapUnion" autoMapping="true" />
-	<!-- 连接查询映射关联 配置结束 -->
-	
+
+	<select id="selectOne" resultMap="questionResult">
+		SELECT * FROM BLOG WHERE ID = #{id}
+	</select>
+
 </mapper>
