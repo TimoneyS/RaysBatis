@@ -16,6 +16,13 @@ public class QuestionDaoImpl implements QuestionDao {
         }
     }
     
+    @Override
+    public Question selectOneU(long id) {
+        try(SqlSession sess = fac().openSession()) {
+            return sess.selectOne("Question.selectOneU", id);
+        }
+    }
+    
     public SqlSessionFactory fac() {
         return Config.getSqlSessionFactory();
     }

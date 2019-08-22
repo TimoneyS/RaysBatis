@@ -22,9 +22,15 @@ public class TestQuestionDao {
         dao = new QuestionDaoImpl();
     }
     
-    @Test
     public void testQueryOne() {
         Question ques = dao.selectOne(1);
+        System.out.println("查询完毕");
+        out.println(ques);
+    }
+    
+    @Test
+    public void testQueryOneU() {
+        Question ques = dao.selectOneU(1);
         System.out.println("查询完毕");
         out.println(ques);
     }

@@ -5,12 +5,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Question">
 
 	<resultMap id="questionResult" type="com.ray.entity.Question">
-		<association property="author" javaType="com.ray.entity.Author"
-			         column="author_id" select="Author.selectOne" fetchType="lazy" />
+		<association property="author"
+			javaType="com.ray.entity.Author" column="author_id"
+			select="Author.selectOne" fetchType="lazy" />
 	</resultMap>
-	
+
 	<select id="selectOne" resultMap="questionResult">
 		SELECT * FROM QUESTION WHERE ID = #{id}
 	</select>
+
+	<select id="selectOneU" resultMap="questionResultU">
+        SELECT Q.ID             AS QUESTION_ID,
+               Q.TITLE          AS TITLE,
+               Q.CONTENT        AS CONTENT,
+               Q.CREATE_DATE    AS QUESTION_CREATE_DATE,
+               A.ID             AS AUTHOR_ID,
+               A.USERNAME       AS USERNAME,
+               A.REALNAME       AS REALNAME,
+               A.CREATE_DATE    AS AUTHOR_CREATE_DATE
+        FROM QUESTION Q 
+            LEFT JOIN AUTHOR A ON A.ID = Q.AUTHOR_ID
+        WHERE Q.ID = #{id}
+	</select>
+	
+    <resultMap id="questionResultU" type="com.ray.entity.Question" autoMapping="true">
+        <id property="id" column="QUESTION_ID"/>
+        <result property="createDate" column="QUESTION_CREATE_DATE"/>
+        <association property="author" javaType="com.ray.entity.Author" autoMapping="true">
+            <id property="id" column="AUTHOR_ID" />
+            <result property="createDate" column="AUTHOR_CREATE_DATE"/>
+        </association>
+    </resultMap>
 
 </mapper>

@@ -29,7 +29,7 @@ values
 
 
 insert into question (id, title, content, author_id, create_date)
-values (1, '什么东西最好吃', '请问，牛奶和牛肉哪个更好吃啊', 1, now());
+values (1, '什么东西最好吃', '请问，牛奶和牛肉哪个更好吃啊', 3, now());
 
 insert into reply (id, content, question_id, author_id, create_date)
 values

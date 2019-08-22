@@ -22,4 +22,9 @@ public class QuestionDaoImpl implements QuestionDao {
         return Config.getSqlSessionFactory();
     }
 
+    @Override
+    public Question selectOneU(long id) {
+        throw new RuntimeException("not support right now()");
+    }
+
 }

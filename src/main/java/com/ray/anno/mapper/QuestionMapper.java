@@ -16,8 +16,7 @@ public interface QuestionMapper {
     @Results({
         @Result(column="create_date", property="createDate"),
         @Result(property="author", column="author_id", 
-            one=@One(fetchType=FetchType.LAZY, select="com.ray.anno.mapper.AuthorMapper.selectOne"))
-        
+                one=@One(fetchType=FetchType.LAZY, select="com.ray.anno.mapper.AuthorMapper.selectOne"))
     })
     public Question selectOne(long id);
     
