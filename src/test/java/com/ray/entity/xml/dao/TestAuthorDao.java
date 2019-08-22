@@ -1,4 +1,4 @@
-package com.ray.entity.dao.xml;
+package com.ray.entity.xml.dao;
 
 import java.io.PrintStream;
 

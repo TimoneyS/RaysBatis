@@ -5,12 +5,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Question">
 
 	<resultMap id="questionResult" type="com.ray.entity.Question">
-		<association property="author" column="author_id"
-			javaType="com.ray.entity.Author" select="Author.queryOne" />
+		<association property="author" javaType="com.ray.entity.Author"
+			         column="author_id" select="Author.selectOne" fetchType="lazy" />
 	</resultMap>
-
+	
 	<select id="selectOne" resultMap="questionResult">
-		SELECT * FROM BLOG WHERE ID = #{id}
+		SELECT * FROM QUESTION WHERE ID = #{id}
 	</select>
 
 </mapper>

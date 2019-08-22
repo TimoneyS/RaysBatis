@@ -64,8 +64,10 @@ public class Question {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("Question ").append(id).append(" : ").append(title).append('\n').append("  ").append(author)
-                .append(" : ").append(content).append("\n").append("  ").append(createDate).append('\n')
+        sb.append("\nQuestion ").append(id).append(" : ").append(title).append('\n')
+                .append(content).append("\n")
+                .append("创建时间：").append(createDate).append('\n')
+                .append("作者：").append(author).append("\n")
                 .append("-----------------------------------------------------\n");
 
         if (replys != null) {

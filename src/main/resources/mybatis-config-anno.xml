@@ -9,8 +9,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</properties>
 	
 	<environments default="dev">
-	
-	
 		<environment id="dev">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
@@ -23,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	
     <mappers>
-         <package name="com.ray.mapper"/>
+         <package name="com.ray.anno.mapper"/>
     </mappers>
 
 </configuration>

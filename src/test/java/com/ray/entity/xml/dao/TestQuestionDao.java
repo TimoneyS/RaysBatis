@@ -1,4 +1,4 @@
-package com.ray.entity.dao.xml;
+package com.ray.entity.xml.dao;
 
 import java.io.PrintStream;
 
@@ -25,8 +25,8 @@ public class TestQuestionDao {
     @Test
     public void testQueryOne() {
         Question ques = dao.selectOne(1);
+        System.out.println("查询完毕");
         out.println(ques);
-        
     }
     
 }

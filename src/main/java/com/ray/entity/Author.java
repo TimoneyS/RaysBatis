@@ -44,9 +44,9 @@ public class Author {
     @Override
     public String toString() {
         return "id = " + id + "\n" +
-                "username = " + username + "\n" +
-                "realname = " + realname + "\n" +
-                "createDate = " + createDate + "\n";
+                "用户名            = " + username + "\n" +
+                "真实名称        = " + realname + "\n" +
+                "用户创建时间 = " + createDate + "\n";
     }
 
 }
