@@ -6,7 +6,7 @@ public class Reply {
 
     private Long   id;
     private Long   authorId;
-    private String title;
+    private String content;
     private Date   createDate;
 
     public Long getId() {
@@ -25,12 +25,12 @@ public class Reply {
         this.authorId = authorId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getContent() {
+        return content;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Date getCreateDate() {
@@ -39,6 +39,17 @@ public class Reply {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("回复 ").append(id).append(":").append(content).append("\n");
+        sb.append("创建时间：").append(createDate).append("，作者：").append(authorId).append("\n");
+        sb.append("====\n");
+        return sb.toString();
     }
 
 }

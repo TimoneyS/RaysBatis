@@ -10,7 +10,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	
 	<environments default="dev">
 	
-	
 		<environment id="dev">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
@@ -25,6 +24,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <mappers>
         <mapper resource="com/ray/xml/mapper/AuthorMapper.xml"/>
         <mapper resource="com/ray/xml/mapper/QuestionMapper.xml"/>
+        <mapper resource="com/ray/xml/mapper/ReplyMapper.xml"/>
     </mappers>
 
 </configuration>

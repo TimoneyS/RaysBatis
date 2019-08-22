@@ -5,9 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Question">
 
 	<resultMap id="questionResult" type="com.ray.entity.Question">
-		<association property="author"
-			javaType="com.ray.entity.Author" column="author_id"
-			select="Author.selectOne" fetchType="lazy" />
+		<association column="author_id"
+		       property="author" javaType="com.ray.entity.Author"
+			   select="Author.selectOne" fetchType="lazy" />
+		<collection column="id" property="replys"
+		       select="Reply.selectByQ" fetchType="lazy"/>
 	</resultMap>
 
 	<select id="selectOne" resultMap="questionResult">
@@ -22,9 +24,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                A.ID             AS AUTHOR_ID,
                A.USERNAME       AS USERNAME,
                A.REALNAME       AS REALNAME,
-               A.CREATE_DATE    AS AUTHOR_CREATE_DATE
+               A.CREATE_DATE    AS AUTHOR_CREATE_DATE,
+               R.ID             AS REPLY_ID,
+               R.CONTENT        AS REPLY_CONTENT,
+               R.CREATE_DATE    AS REPLY_CREATE_DATE
         FROM QUESTION Q 
             LEFT JOIN AUTHOR A ON A.ID = Q.AUTHOR_ID
+            LEFT JOIN REPLY R ON R.QUESTION_ID = Q.ID
         WHERE Q.ID = #{id}
 	</select>
 	
@@ -35,6 +41,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <id property="id" column="AUTHOR_ID" />
             <result property="createDate" column="AUTHOR_CREATE_DATE"/>
         </association>
+        <collection property="replys" ofType="com.ray.entity.Reply">
+            <id property="id" column="REPLY_ID"/>
+            <result property="content" column="REPLY_CONTENT"/>
+            <result property="createDate" column="REPLY_CREATE_DATE"/>
+        </collection>
     </resultMap>
 
 </mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Reply">
+
+	<select id="selectOne" resultType="com.ray.entity.Reply" >
+		SELECT * FROM REPLY WHERE ID = #{id}
+	</select>
+	
+    <select id="selectByQ" resultType="com.ray.entity.Reply" >
+        SELECT * FROM REPLY WHERE QUESTION_ID = #{q_id}
+    </select>
+	
+</mapper>
+

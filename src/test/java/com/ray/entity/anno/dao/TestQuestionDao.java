@@ -29,8 +29,7 @@ public class TestQuestionDao {
         out.println("查询完毕");
         out.println(question);
     }
-    
-    @Test
+   
     public void testSelectOneU() {
         long id = 1l;
         Question question = dao.selectOneU(id);

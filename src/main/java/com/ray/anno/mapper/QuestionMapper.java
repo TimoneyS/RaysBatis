@@ -1,5 +1,6 @@
 package com.ray.anno.mapper;
 
+import org.apache.ibatis.annotations.Many;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.One;
 import org.apache.ibatis.annotations.Result;
@@ -16,7 +17,10 @@ public interface QuestionMapper {
     @Results({
         @Result(column="create_date", property="createDate"),
         @Result(property="author", column="author_id", 
-                one=@One(fetchType=FetchType.LAZY, select="com.ray.anno.mapper.AuthorMapper.selectOne"))
+                one=@One(fetchType=FetchType.LAZY, select="com.ray.anno.mapper.AuthorMapper.selectOne")),
+        @Result(property="replys", column="id",
+                many=@Many(fetchType=FetchType.LAZY, select="com.ray.anno.mapper.ReplyMapper.selectByQ")
+                )
     })
     public Question selectOne(long id);
     
