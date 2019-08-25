@@ -1,5 +1,7 @@
 package com.ray.xml.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -16,8 +18,17 @@ public class AuthorDaoImpl implements AuthorDao {
         }
     }
     
+    @Override
+    public List<Author> selectByUsername(String username) {
+        try(SqlSession sess = fac().openSession()) {
+             return sess.selectList("Author.selectByUsername", username);
+        }
+    }
+    
     public SqlSessionFactory fac() {
         return Config.getSqlSessionFactory();
     }
+
+
 
 }

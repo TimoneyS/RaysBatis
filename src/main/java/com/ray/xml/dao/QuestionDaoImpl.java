@@ -23,8 +23,34 @@ public class QuestionDaoImpl implements QuestionDao {
         }
     }
     
+    @Override
+    public void insert(Question question) {
+        try(SqlSession sess = fac().openSession()) {
+            sess.insert("Question.insert", question);
+            sess.commit();
+        }
+    }
+    
     public SqlSessionFactory fac() {
         return Config.getSqlSessionFactory();
     }
+
+    @Override
+    public void delete(long id) {
+        try(SqlSession sess = fac().openSession()) {
+            sess.delete("Question.deleteOne", id);
+            sess.commit();
+        }        
+    }
+
+    @Override
+    public void update(Question question) {
+        try(SqlSession sess = fac().openSession()) {
+            sess.update("Question.update", question);
+            sess.commit();
+        }        
+    }
+
+
 
 }

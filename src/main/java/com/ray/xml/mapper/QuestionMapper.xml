@@ -3,19 +3,48 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Question">
-
+    
+    <!-- 缓存  -->
+    <cache flushInterval="500000000" size="1024">
+    
+    </cache>
+    
+    <!-- 修改 -->
+    <update id="update" keyColumn="ID" keyProperty="id" parameterType="com.ray.entity.Question" flushCache="true">
+        UPDATE QUESTION SET
+            TITLE       = #{title},
+            CONTENT     = #{content},
+            AUTHOR_ID   = #{author.id},
+            CREATE_DATE = #{createDate}
+        WHERE ID = #{id}
+    </update>
+    
+    <!-- 删除 -->
+    <delete id="deleteOne">
+        DELETE FROM QUESTION WHERE ID = #{id}
+    </delete>
+    
+    <!-- 插入 -->
+    <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.ray.entity.Question">
+        INSERT INTO QUESTION (ID, TITLE, CONTENT, AUTHOR_ID, CREATE_DATE)
+        VALUES (#{id}, #{title}, #{content}, #{author.id}, #{createDate})
+    </insert>
+    
+    <!-- 查询 -->
 	<resultMap id="questionResult" type="com.ray.entity.Question">
+	   <id column="id" property="id" />
 		<association column="author_id"
 		       property="author" javaType="com.ray.entity.Author"
-			   select="Author.selectOne" fetchType="lazy" />
+			   select="Author.selectOne"/>
 		<collection column="id" property="replys"
-		       select="Reply.selectByQ" fetchType="lazy"/>
+		       select="Reply.selectByQ"/>
 	</resultMap>
 
 	<select id="selectOne" resultMap="questionResult">
 		SELECT * FROM QUESTION WHERE ID = #{id}
 	</select>
 
+    <!-- 联合查询 -->
 	<select id="selectOneU" resultMap="questionResultU">
         SELECT Q.ID             AS QUESTION_ID,
                Q.TITLE          AS TITLE,

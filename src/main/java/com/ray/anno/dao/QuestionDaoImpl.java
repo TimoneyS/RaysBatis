@@ -27,4 +27,22 @@ public class QuestionDaoImpl implements QuestionDao {
         throw new RuntimeException("not support right now()");
     }
 
+    @Override
+    public void insert(Question question) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void delete(long id) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void update(Question question) {
+        // TODO Auto-generated method stub
+        
+    }
+
 }

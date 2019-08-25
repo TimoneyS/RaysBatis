@@ -1,5 +1,7 @@
 package com.ray.anno.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -20,6 +22,11 @@ public class AuthorDaoImpl implements AuthorDao {
     
     public SqlSessionFactory fac() {
         return Config.getSqlSessionFactory();
+    }
+
+    @Override
+    public List<Author> selectByUsername(String username) {
+        return null;
     }
 
 }

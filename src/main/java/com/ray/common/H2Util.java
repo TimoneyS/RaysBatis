@@ -13,14 +13,14 @@ public class H2Util {
 
     // 从配置文件冲加载，初始化数据源的内容
     public static void init(String... schemas) {
-
         if (schemas == null)
             return;
-
         Properties props = SysUtil.loadProperties("datasource.properties");
         String url = props.getProperty("url");
         String username = props.getProperty("username");
         String password = props.getProperty("password");
+        
+        if (!url.matches(".*h2.*")) return;
 
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
 

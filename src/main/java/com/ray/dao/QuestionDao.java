@@ -4,7 +4,10 @@ import com.ray.entity.Question;
 
 public interface QuestionDao {
     
-    public Question selectOne(long id);
+    Question selectOne(long id);
     Question selectOneU(long id);
+    void insert(Question question);
+    void delete(long id);
+    void update(Question question);
     
 }

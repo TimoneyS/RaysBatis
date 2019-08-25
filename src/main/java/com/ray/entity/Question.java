@@ -1,10 +1,15 @@
 package com.ray.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Question {
+public class Question  implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 2912641860336054012L;
     private Long        id;
     private String      title;
     private String      content;

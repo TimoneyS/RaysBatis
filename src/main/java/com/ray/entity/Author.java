@@ -1,9 +1,14 @@
 package com.ray.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Author {
+public class Author implements Serializable {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -8853546548044109471L;
     private Long   id;
     private String username;
     private String realname;
